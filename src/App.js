@@ -67,20 +67,20 @@ const Navigation = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           <div className="text-base md:text-lg font-light tracking-[0.2em]">
-            YOUR<span className="font-normal">NAME</span>
+            SRIKRISHNA<span className="font-normal">HIREHOLI</span>
           </div>
           
-          <div className="hidden md:flex items-center gap-10">
-            {['Work', 'About', 'Contact'].map((item) => (
-              <button
-                key={item}
-                className="relative text-xs tracking-[0.15em] transition-all duration-300 group text-gray-400 hover:text-white uppercase"
-              >
-                {item}
-                <span className="absolute bottom-0 left-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-              </button>
-            ))}
-          </div>
+            {/* <div className="hidden md:flex items-center gap-10">
+              {['Work', 'About', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  className="relative text-xs tracking-[0.15em] transition-all duration-300 group text-gray-400 hover:text-white uppercase"
+                >
+                  {item}
+                  <span className="absolute bottom-0 left-0 w-full h-px bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                </button>
+              ))}
+            </div> */}
 
           <button className="md:hidden text-white" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -234,7 +234,7 @@ useEffect(() => {
   return () => window.removeEventListener('scroll', handleSection3Scroll);
 }, []);
 
-  const tagline = "As a digital designer, I help brands and companies connect with their audience, achieve their business goals, and leave a mark in a fast-moving world.".split(" ");
+  const tagline = "As a digital designer, I build interactive, motion driven experiences that help brands connect, communicate, and stand out. My philosophy is rooted in curiosity, experimentation, and designing systems that feel alive in a fast moving world.".split(" ");
 
   const getWordStyle = (i, total, progress) => {
     const diagonalFactor = i / total;
@@ -352,28 +352,172 @@ useEffect(() => {
     />
   </div>
 
-{/* Animated soft cursor glow */}
-<div
-  className="absolute pointer-events-none"
-  style={{
-    left: `${mousePos.x + 50}%`,
-    top: `${mousePos.y + 50}%`,
-    transform: 'translate(-50%, -50%) scale(1.05)',
-    width: '600px',
-    height: '600px',
-    background: 'radial-gradient(circle, rgba(16,185,129,0.85) 0%, rgba(16,185,129,0.55) 35%, transparent 65%)',
-    filter: 'blur(70px)',
-    mixBlendMode: 'screen',
-    animation: 'glowPulse 4s ease-in-out infinite',
-    transition:
-      'left 0.25s cubic-bezier(0.22, 1, 0.36, 1), top 0.25s cubic-bezier(0.22, 1, 0.36, 1)'
-  }}
-/>
+  {/* Animated soft cursor glow */}
+  <div
+    className="absolute pointer-events-none"
+    style={{
+      left: `${mousePos.x + 50}%`,
+      top: `${mousePos.y + 50}%`,
+      transform: 'translate(-50%, -50%) scale(1.05)',
+      width: '600px',
+      height: '600px',
+      background: 'radial-gradient(circle, rgba(16,185,129,0.85) 0%, rgba(16,185,129,0.55) 35%, transparent 65%)',
+      filter: 'blur(70px)',
+      mixBlendMode: 'screen',
+      animation: 'glowPulse 4s ease-in-out infinite',
+      transition:
+        'left 0.25s cubic-bezier(0.22, 1, 0.36, 1), top 0.25s cubic-bezier(0.22, 1, 0.36, 1)'
+    }}
+  />
 
-  
-  
+  {/* Animated Green Aurora Snake Lines */}
+  <svg className="absolute inset-0 w-full h-full" style={{ mixBlendMode: 'screen' }}>
+    <defs>
+      <linearGradient id="snakeGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="rgba(16, 185, 129, 0)" />
+        <stop offset="30%" stopColor="rgba(16, 185, 129, 0.4)" />
+        <stop offset="50%" stopColor="rgba(16, 185, 129, 0.9)" />
+        <stop offset="70%" stopColor="rgba(52, 211, 153, 0.6)" />
+        <stop offset="100%" stopColor="rgba(16, 185, 129, 0)" />
+      </linearGradient>
+      
+      <linearGradient id="snakeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="rgba(52, 211, 153, 0)" />
+        <stop offset="30%" stopColor="rgba(52, 211, 153, 0.3)" />
+        <stop offset="50%" stopColor="rgba(16, 185, 129, 0.8)" />
+        <stop offset="70%" stopColor="rgba(16, 185, 129, 0.5)" />
+        <stop offset="100%" stopColor="rgba(52, 211, 153, 0)" />
+      </linearGradient>
+
+      <filter id="auroraGlow">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+
+    {/* Snake Line 1 - Main flowing diagonal */}
+    <path
+      d="M -200,300 Q 300,200 600,400 T 1400,500 Q 1700,600 2000,400"
+      fill="none"
+      stroke="url(#snakeGradient1)"
+      strokeWidth="4"
+      strokeLinecap="round"
+      filter="url(#auroraGlow)"
+      style={{
+        animation: 'snakeFlow1 12s ease-in-out infinite',
+        opacity: 0.7
+      }}
+    />
+
+    {/* Snake Line 2 - Secondary wave */}
+    <path
+      d="M -300,600 Q 200,500 700,700 T 1500,800 Q 1800,900 2200,700"
+      fill="none"
+      stroke="url(#snakeGradient2)"
+      strokeWidth="3"
+      strokeLinecap="round"
+      filter="url(#auroraGlow)"
+      style={{
+        animation: 'snakeFlow2 15s ease-in-out infinite',
+        animationDelay: '2s',
+        opacity: 0.5
+      }}
+    />
+
+    {/* Snake Line 3 - Subtle top wave */}
+    <path
+      d="M -100,100 Q 400,50 800,200 T 1600,250 Q 1900,300 2100,150"
+      fill="none"
+      stroke="url(#snakeGradient1)"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      filter="url(#auroraGlow)"
+      style={{
+        animation: 'snakeFlow3 18s ease-in-out infinite',
+        animationDelay: '4s',
+        opacity: 0.4
+      }}
+    />
+
+    {/* Flowing particles along the path */}
+    {[...Array(6)].map((_, i) => (
+      <circle
+        key={`particle-${i}`}
+        r="4"
+        fill="rgba(16, 185, 129, 0.8)"
+        filter="url(#auroraGlow)"
+        style={{
+          animation: `particleFlow${(i % 3) + 1} ${8 + i * 2}s ease-in-out infinite`,
+          animationDelay: `${i * 1.5}s`
+        }}
+      />
+    ))}
+  </svg>
 </div>
               <style>{`
+              @keyframes snakeFlow1 {
+  0%, 100% { 
+    d: path("M -200,300 Q 300,200 600,400 T 1400,500 Q 1700,600 2000,400");
+    opacity: 0.7;
+  }
+  25% { 
+    d: path("M -200,350 Q 350,250 650,450 T 1450,550 Q 1750,650 2000,450");
+    opacity: 0.9;
+  }
+  50% { 
+    d: path("M -200,280 Q 280,180 580,380 T 1380,480 Q 1680,580 2000,380");
+    opacity: 0.6;
+  }
+  75% { 
+    d: path("M -200,320 Q 320,220 620,420 T 1420,520 Q 1720,620 2000,420");
+    opacity: 0.8;
+  }
+}
+
+@keyframes snakeFlow2 {
+  0%, 100% { 
+    d: path("M -300,600 Q 200,500 700,700 T 1500,800 Q 1800,900 2200,700");
+  }
+  33% { 
+    d: path("M -300,650 Q 250,550 750,750 T 1550,850 Q 1850,950 2200,750");
+  }
+  66% { 
+    d: path("M -300,580 Q 180,480 680,680 T 1480,780 Q 1780,880 2200,680");
+  }
+}
+
+@keyframes snakeFlow3 {
+  0%, 100% { 
+    d: path("M -100,100 Q 400,50 800,200 T 1600,250 Q 1900,300 2100,150");
+  }
+  50% { 
+    d: path("M -100,130 Q 430,80 830,230 T 1630,280 Q 1930,330 2100,180");
+  }
+}
+
+@keyframes particleFlow1 {
+  0% { cx: -100; cy: 300; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { cx: 2000; cy: 400; opacity: 0; }
+}
+
+@keyframes particleFlow2 {
+  0% { cx: -300; cy: 600; opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { cx: 2200; cy: 700; opacity: 0; }
+}
+
+@keyframes particleFlow3 {
+  0% { cx: -100; cy: 100; opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { cx: 2100; cy: 150; opacity: 0; }
+}
               @keyframes glowPulse {
   0% {
     transform: translate(-50%, -50%) scale(1);
@@ -436,7 +580,7 @@ useEffect(() => {
                     }}
                     onError={(e) => {
                       e.target.style.display = 'none';
-                      e.target.parentElement.style.background = 'linear-gradient(135deg, #dc2626 0%, #7c2d12 100%)';
+                      e.target.parentElement.style.background = 'linear-gradient(135deg, #000000ff 0%, #000000ff 100%)';
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -448,7 +592,7 @@ useEffect(() => {
                   className="absolute inset-0 rounded-2xl overflow-hidden"
                   style={{
                     opacity: section1Progress,
-                    transform: `translate(${mousePos.x * 2}px, ${mousePos.y * 2}px)`,
+                    transform: `translate(${mousePos.x * 5}px, ${mousePos.y * 3}px)`,
                     transition: 'transform 0.1s linear'
                   }}
                 >
@@ -457,7 +601,7 @@ useEffect(() => {
                     alt="Portrait Face"
                     className="w-full h-full object-cover"
                     style={{
-                      transform: `scale(${0.85 + section1Progress * 0.1})`,
+                      transform: `scale(${1.15 + section1Progress * 0.1})`,
                       transition: 'transform 1s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}
                     onError={(e) => {
@@ -505,7 +649,7 @@ useEffect(() => {
                   className="text-lg md:text-xl text-black-400 leading-relaxed max-w-xl opacity-0 animate-fadeInUp" 
                   style={{ animationDelay: '1s', animationFillMode: 'forwards' }}
                 >
-                  Crafting award-winning digital experiences that connect brands with their audience and drive meaningful results.
+                  Crafting award winning digital experiences that connect brands with their audience and drive meaningful results.
                 </p>
               </div>
             </div>
@@ -533,8 +677,7 @@ useEffect(() => {
             (My Philosophy)
           </div>
           
-          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-[1.4] text-center">
-            {tagline.map((word, i) => (
+<h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-[1.4] text-center">            {tagline.map((word, i) => (
               <span
                 key={i}
                 className="inline-block mx-2 my-1"
@@ -847,78 +990,7 @@ useEffect(() => {
   </div>
 </section>
 
-      {/* Section 4: Text Left, Image Right */}
-      <section ref={section4Ref} className="min-h-screen flex items-center py-32 px-6 relative">
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            {/* Left: Text */}
-            <div 
-              className="space-y-8 order-2 lg:order-1"
-              style={{
-                opacity: section4Progress,
-                transform: `translateX(${(1 - section4Progress) * -80}px)`
-              }}
-            >
-              <div className="text-xs tracking-[0.3em] text-gray-500 uppercase">
-                (Selected Work)
-              </div>
-              
-              <h3 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-                Award-Winning
-                <br />
-                <span className="italic">Projects</span>
-              </h3>
-              
-              <p className="text-xl md:text-2xl font-light text-gray-400 leading-relaxed">
-                Creating memorable digital experiences that connect brands with their audience and drive measurable results.
-              </p>
-
-              <div className="flex flex-wrap gap-6 pt-4">
-                {['Awwwards', 'CSS Design Awards', 'FWA'].map((award, i) => (
-                  <div 
-                    key={award}
-                    className="text-xs tracking-wider text-gray-600 opacity-0 animate-fadeInUp"
-                    style={{ animationDelay: `${i * 0.1 + 0.5}s`, animationFillMode: 'forwards' }}
-                  >
-                    {award}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Image */}
-            <div 
-              className="relative order-1 lg:order-2"
-              style={{
-                opacity: section4Progress,
-                transform: `translateX(${(1 - section4Progress) * 80}px) scale(${0.9 + section4Progress * 0.1})`
-              }}
-            >
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden relative group">
-                <img 
-                  src="./project-showcase.jpg" 
-                  alt="Project Showcase"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.style.background = 'linear-gradient(135deg, #7c2d12 0%, #991b1b 100%)';
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-tl from-black/40 to-transparent"></div>
-                
-                {/* Overlay text on hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="text-center">
-                    <div className="text-sm tracking-widest mb-2">VIEW PROJECT</div>
-                    <div className="w-12 h-px bg-white mx-auto"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
       {/* Section 5: Full Width Image with Overlay Text */}
       <section ref={section5Ref} className="min-h-screen relative flex items-center justify-center">
         {/* Background Image */}
@@ -949,7 +1021,7 @@ useEffect(() => {
             transform: `translateY(${(1 - section5Progress) * 50}px)`
           }}
         >
-          <div className="text-xs tracking-[0.3em] text-gray-500 mb-8 uppercase">
+          <div className="text-xs tracking-[0.3em] text-black-500 mb-8 uppercase">
             (Let's Work Together)
           </div>
           
@@ -959,9 +1031,12 @@ useEffect(() => {
             <span className="italic">amazing?</span>
           </h2>
           
-          <button className="px-12 py-5 bg-white text-black hover:bg-gray-200 transition-all duration-500 text-sm tracking-[0.2em] uppercase font-medium">
-            Get In Touch
-          </button>
+<button 
+  onClick={() => window.location.href = 'mailto:srikrishnanfs@email.com?subject=Project Details'}
+  className="px-12 py-5 bg-white text-black hover:bg-gray-200 transition-all duration-500 text-sm tracking-[0.2em] uppercase font-medium"
+>
+  Get In Touch
+</button>
         </div>
       </section>
 
@@ -971,19 +1046,19 @@ useEffect(() => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
             <div>
               <h4 className="text-sm tracking-[0.2em] mb-6 text-gray-500 uppercase">Contact</h4>
-              <a href="mailto:hello@example.com" className="text-lg hover:text-gray-400 transition-colors duration-300 block mb-2">
-                hello@example.com
+              <a href="mailto:srikrishnanfs@gmail.com" className="text-lg hover:text-gray-400 transition-colors duration-300 block mb-2">
+                srikrishnanfs@gmail.com
               </a>
-              <p className="text-gray-600 text-sm">+91 12345 67890</p>
+              <p className="text-gray-600 text-sm">+91 9019 755311</p>
             </div>
             
             <div>
               <h4 className="text-sm tracking-[0.2em] mb-6 text-gray-500 uppercase">Social</h4>
               <div className="space-y-3">
-                {['Instagram', 'Behance', 'LinkedIn'].map((social) => (
+                {['Instagram'].map((social) => (
                   <a 
                     key={social}
-                    href="#" 
+                    href="https://www.instagram.com/srikrishna_hireholi/" 
                     className="block text-sm hover:text-gray-400 transition-colors duration-300"
                   >
                     {social}
@@ -994,7 +1069,7 @@ useEffect(() => {
             
             <div>
               <h4 className="text-sm tracking-[0.2em] mb-6 text-gray-500 uppercase">Location</h4>
-              <p className="text-sm text-gray-400">Bengaluru, Karnataka</p>
+              <p className="text-sm text-gray-400">Huballi, Karnataka</p>
               <p className="text-sm text-gray-400">India</p>
             </div>
           </div>
