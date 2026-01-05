@@ -642,7 +642,7 @@ useEffect(() => {
                   style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}
                 >
                   <div className="h-px w-20 bg-white/30"></div>
-                  <p className="text-xs tracking-[0.3em] text-black-400 uppercase">Bengaluru, India</p>
+                  <p className="text-xs tracking-[0.3em] text-black-400 uppercase">Hubballi, India</p>
                 </div>
 
                 <p 
@@ -748,7 +748,7 @@ useEffect(() => {
             }
             50% {
               transform: scale(2.5);
-              opacity: 0.6;
+              opacity: 0.q;
             }
             100% {
               transform: scale(4);
@@ -1069,7 +1069,7 @@ useEffect(() => {
             
             <div>
               <h4 className="text-sm tracking-[0.2em] mb-6 text-gray-500 uppercase">Location</h4>
-              <p className="text-sm text-gray-400">Huballi, Karnataka</p>
+              <p className="text-sm text-gray-400">Hubballi, Karnataka</p>
               <p className="text-sm text-gray-400">India</p>
             </div>
           </div>
